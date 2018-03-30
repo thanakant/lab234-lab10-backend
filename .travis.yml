@@ -10,10 +10,10 @@ install:
 - mvn install -Dmaven.javadoc.skip=true -B -V
 - ls -l
 - docker build --build-arg JAR_FILE=/target/backend.jar -t $DOCKER_USERNAME/se234-lab10-backend .
-- docker push getgorok/se234-lab10-backend
-- docker pull getgorok/se234-lab10-client
+- docker push getgorok/se234-lab10-backend:latest
+- docker pull getgorok/se234-lab10-client:latest
 script:
-- docker-compose -H "$DOCKER_HOST" up -d
+- docker-compose -H "$HOST_NAME" up -d
 cache:
   directories:
   - "$HOME/.m2"
