@@ -1,7 +1,7 @@
 import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-public  class GradeServiceImplTest {
+public  class TestGradeService {
     @Test
     public void testGetGrade(){
         GradeServiceImpl gradeService = new GradeServiceImpl();
