@@ -13,6 +13,9 @@ install:
 - docker push getgorok/se234-lab10-backend:latest
 - docker pull getgorok/se234-lab10-client:latest
 script:
+- docker-compose -H "$HOST_NAME" stop
+- docker-compose -H "$HOST_NAME" rm -f
+- docker-compose -H "$HOST_NAME" pull
 - docker-compose -H "$HOST_NAME" up -d
 cache:
   directories:
