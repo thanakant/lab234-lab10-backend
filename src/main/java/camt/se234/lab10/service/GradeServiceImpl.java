@@ -7,19 +7,17 @@ import org.springframework.stereotype.Service;
 public class GradeServiceImpl implements GradeService {
     @Override
     public String getGrade(double score) {
-        String grade= "";
-        if(score <= 100&&score>=80){
-            grade =  "A";
-        }else if(score <80 && score>=75){
-            grade = "B";
-        }else if(score <75 &&score>=60){
-            grade =  "C";
-        }else if(score <=60 && score>=33){
-            grade = "D";
-        }else if(score <=32){
-            grade = "F";
+        if (score > 79.5) {
+            return "A";
         }
-        return grade;
+        else if (score > 74.5){
+            return "B";
+        }else if (score > 59.5){
+            return "C";
+        }else if (score > 32.5) {
+            return "D";
+        } else
+            return "F";
 
     }
 }
