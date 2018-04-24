@@ -4,6 +4,7 @@ import camt.se234.lab10.service.GradeServiceImpl;
 import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+@RunWith(JUnitParamsRunner.class)
 public class TestGradeService {
     @Test
     public void testGetGrade(){
@@ -20,5 +21,12 @@ public class TestGradeService {
         assertThat(gradeService.getGrade(0),is("F"));
 
     }
-
+	
+	@Test
+	@Parameters(method = "paramsForTestGetGradeParams")
+	public void testGetGradeparams(double score,String expectedGrade){
+		GradeServiceImpl gradeService = new GradeServiceImpl();
+		assertThat(gradeService.getGrade(score),is(expectedGrade));
+	}
+	
 }

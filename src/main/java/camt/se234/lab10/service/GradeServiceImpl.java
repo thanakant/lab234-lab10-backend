@@ -22,4 +22,11 @@ public class GradeServiceImpl implements GradeService {
         return g;
 
     }
+	public Object paramsForTestGetGradeParams(){
+		return new Object[][]{
+			{100,"A"},
+			{77,"B"}
+		};
+	}
+	
 }
