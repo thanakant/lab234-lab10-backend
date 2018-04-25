@@ -44,5 +44,24 @@ public class TestGradeService {
         GradeServiceImpl gradeService = new GradeServiceImpl();
 		assertThat(gradeService.getGrade(score),is(expectedGrade));
 	}
-	
+
+    public Object paramsForTestGetGradeParams2(){
+        return new Object[][]{
+                {40,40,"A"},
+                {40,37,"B"},
+                {30,30,"C"},
+                {20,35,"D"},
+                {10,20,"F"}
+        };
+    }
+    @Test
+    @Parameters(method = "paramsForTestGetGradeParams2")
+    @TestCaseName("Test getGrade Params 2 [{index}] : input is {0}, expect \"{1}\"")
+    public void testGetGradeparams2(double midtermScore,double finalScore,String expectedGrade){
+        GradeServiceImpl gradeService = new GradeServiceImpl();
+        assertThat(gradeService.getGrade(midtermScore,finalScore),is(expectedGrade));
+    }
+
+
+
 }
